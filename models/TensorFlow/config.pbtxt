@@ -1,0 +1,20 @@
+name: "tensorflow-resnet50"
+backend: "onnxruntime"
+
+max_batch_size: 8
+
+input [
+  {
+    name: "inputs"
+    data_type: TYPE_FP32
+    dims: [ 224, 224, 3 ]
+  }
+]
+
+output [
+  {
+    name: "output_0"
+    data_type: TYPE_FP32
+    dims: [ 1000 ]
+  }
+]

@@ -1,0 +1,24 @@
+prometheus:
+  prometheusSpec:
+    nodeSelector:
+      workload: cpu
+
+grafana:
+  nodeSelector:
+    workload: cpu
+
+alertmanager:
+  alertmanagerSpec:
+    nodeSelector:
+      workload: cpu
+
+kube-state-metrics:
+  nodeSelector:
+    workload: cpu
+    
+prometheus-node-exporter:
+  tolerations:
+    - key: nvidia.com/gpu
+      operator: Equal
+      value: "true"
+      effect: NoSchedule

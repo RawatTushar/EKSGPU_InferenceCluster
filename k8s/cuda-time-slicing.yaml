@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cuda-workload-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cuda-workload-1
+  template:
+    metadata:
+      labels:
+        app: cuda-workload-1
+    spec:
+      nodeSelector:
+        workload: gpu
+
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Equal
+          value: "true"
+          effect: NoSchedule
+
+      containers:
+        - name: cuda
+          image: nvidia/cuda:12.6.3-base-ubuntu24.04
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              echo "CUDA Workload 1 started"
+              nvidia-smi
+              sleep infinity
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cuda-workload-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cuda-workload-2
+  template:
+    metadata:
+      labels:
+        app: cuda-workload-2
+    spec:
+      nodeSelector:
+        workload: gpu
+
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Equal
+          value: "true"
+          effect: NoSchedule
+
+      containers:
+        - name: cuda
+          image: nvidia/cuda:12.6.3-base-ubuntu24.04
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              echo "CUDA Workload 2 started"
+              nvidia-smi
+              sleep infinity
+          resources:
+            limits:
+              nvidia.com/gpu: 1

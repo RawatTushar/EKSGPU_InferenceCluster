@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: triton
+  namespace: default
+  labels:
+    release: monitoring
+
+spec:
+  selector:
+    matchLabels:
+      app: triton
+
+  namespaceSelector:
+    matchNames:
+      - default
+
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics

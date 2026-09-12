@@ -1,0 +1,22 @@
+driver:
+  enabled: false
+
+toolkit:
+  enabled: false
+
+devicePlugin:
+  enabled: true
+  config:
+    name: time-slicing-config
+
+nfd:
+  enabled: true
+
+gfd:
+  enabled: true
+
+tolerations:
+  - key: nvidia.com/gpu
+    operator: Equal
+    value: "true"
+    effect: NoSchedule

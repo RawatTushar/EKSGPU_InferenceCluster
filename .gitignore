@@ -1,0 +1,91 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Python environments, caches, and test output
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.kubeconfig
+kubeconfig
+.aws/
+secrets/
+secret.yaml
+secret-*.yaml
+
+# Terraform generated files and local state
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfplan
+**/*.plan
+tfplan
+**/crash.log
+**/crash.*.log
+**/.terraform.tfstate.lock.info
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
+*.tfvars
+*.tfvars.json
+*.tfvars.example
+!*.tfvars.example
+!.terraform.lock.hcl
+**/.terraformrc
+**/terraform.rc
+
+# Model weights and generated model packages.
+# Keep config.pbtxt, export scripts, and documentation under version control.
+models/**/*.onnx
+models/**/*.engine
+models/**/*.bin
+models/**/*.pt
+models/**/*.pth
+models/**/*.ckpt
+models/**/*.weights
+models/**/*.model
+models/**/*.tar
+models/**/*.gz
+models/**/*.zip
+models/**/saved_model.pb
+models/**/fingerprint.pb
+models/**/variables/
+models/**/assets/
+
+# Generated Kubernetes / Helm output
+*.rendered.yaml
+*.generated.yaml
+*local*.yaml
+*override*.yaml
+
+# Backup and patch files
+*.bak
+*.orig
+*.backup
+*.rej
