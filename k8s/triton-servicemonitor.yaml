@@ -13,7 +13,7 @@ spec:
 
   namespaceSelector:
     matchNames:
-      - default
+      - inference
 
   endpoints:
     - port: metrics
